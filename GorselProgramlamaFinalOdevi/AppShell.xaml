@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GorselProgramlamaFinalOdevi.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:GorselProgramlamaFinalOdevi"
+    Shell.FlyoutBehavior="Disabled"
+    Title="GorselProgramlamaFinalOdevi">
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage"/>
+
+    <ShellContent
+        Title="Ana Sayfa"
+        ContentTemplate="{DataTemplate local:Home}"
+        Route="Home"/>
+
+    <ShellContent
+        Title="Kurlar"
+        ContentTemplate="{DataTemplate local:Exchange}"
+        Route="Exchange"
+        Icon="exchange.png"/>
+
+    <ShellContent
+        Title="Haberler"
+        ContentTemplate="{DataTemplate local:News}"
+        Route="News"
+        Icon="news.png"/>
+
+    <ShellContent
+        Title="Hava Durumu"
+        ContentTemplate="{DataTemplate local:Weather}"
+        Route="Weather"
+        Icon="weather.png"/>
+
+    <ShellContent
+        Title="To do List"
+        ContentTemplate="{DataTemplate local:TodoList}"
+        Route="TodoList"
+        Icon="todolist.png"/>
+
+    <ShellContent
+        Title="Ayarlar"
+        ContentTemplate="{DataTemplate local:Settings}"
+        Route="Settings"
+        Icon="settings.png"/>
+
+    <!-- Oturumu Kapat Butonu -->
+    <MenuItem
+        Text="Oturumu Kapat"
+        Clicked="Logout_Clicked"
+        IconImageSource="exit.png" />
+</Shell>

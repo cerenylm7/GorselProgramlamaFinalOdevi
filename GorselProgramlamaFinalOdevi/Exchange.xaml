@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselProgramlamaFinalOdevi.Exchange"
+             Title="Kurlar">
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+
+            <!-- en üstte bulunan güncelle butonu -->
+            <Button Grid.Row="0" Text="Güncelle" Margin="20" Clicked="Button_Clicked" BackgroundColor="#311B45"
+                    TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}"/>
+
+            <!-- ActivityIndicator -->
+            <ActivityIndicator 
+                x:Name="loadingIndicator" 
+                IsVisible="False" 
+                IsRunning="False"
+                Color="#311B45"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HeightRequest="50"
+                WidthRequest="50"
+                Grid.Row="1"
+                Margin="0,10"/>
+
+            <Label Grid.Row="2" Text="Güncel Döviz Kurları" TextColor="{AppThemeBinding Light={StaticResource MainBackgroundColor}, Dark={StaticResource White}}" FontSize="Large" Margin="20" HorizontalTextAlignment="Center"/>
+          
+            <!--
+                Döviz kurlarını listeleyen CollectionView.
+                Her bir döviz bilgisi, Name, Purchase, Sale ve Difference alanlarıyla gösterilir.
+            -->
+            <CollectionView Grid.Row="3" x:Name="currency_list" Margin="20">
+                <CollectionView.Header>
+                    <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="auto">
+                        <Label Text="Currency Name" Grid.Column="0"/>
+                        <Label Text="Purchase Price" Grid.Column="1"/>
+                        <Label Text="Sale Price" Grid.Column="2"/>
+                        <Label Text="Difference" Grid.Column="3"/>
+                    </Grid>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#6E557C">
+                            <Grid ColumnDefinitions="*,*,*,*">
+                                <Label Grid.Column="0" Text="{Binding Name}" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource MainBackgroundColor}, Dark={StaticResource White}}"/>
+                                <Label Grid.Column="1" Text="{Binding Purchase}" FontSize="20"/>
+                                <Label Grid.Column="2" Text="{Binding Sale}" FontSize="20"/>
+                                <Label Grid.Column="3" Text="{Binding Difference}" FontSize="20"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselProgramlamaFinalOdevi.MainPage"
+             BackgroundColor="#F0F4F8">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="25"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+
+     
+            <Label Text="👋 Hoş Geldiniz"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   TextColor="#333"
+                   HorizontalOptions="Center"/>
+
+            <!-- Login Paneli -->
+            <StackLayout x:Name="loginStack" Spacing="15" IsVisible="True">
+                <Label Text="Oturum Aç"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       TextColor="#2C3E50"
+                       HorizontalOptions="Center"/>
+
+                <Frame CornerRadius="10" BackgroundColor="White" Padding="10" HasShadow="True">
+                    <Entry x:Name="l_email" Placeholder="Email" Keyboard="Email" />
+                </Frame>
+
+                <Frame CornerRadius="10" BackgroundColor="White" Padding="10" HasShadow="True">
+                    <Entry x:Name="l_password" Placeholder="Şifre" IsPassword="True"/>
+                </Frame>
+
+                <Button Text="Giriş Yap"
+                        Clicked="LoginClicked"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        CornerRadius="20"
+                        FontAttributes="Bold"/>
+
+                <Button Text="Hesabım Yok"
+                        BackgroundColor="Transparent"
+                        TextColor="#388E3C"
+                        Clicked="ShowScreen"/>
+            </StackLayout>
+
+            <!-- Kayıt Paneli -->
+            <StackLayout x:Name="registerStack" Spacing="15" IsVisible="False">
+                <Label Text="Kayıt Ol"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       TextColor="#2C3E50"
+                       HorizontalOptions="Center"/>
+
+                <Frame CornerRadius="10" BackgroundColor="White" Padding="10" HasShadow="True">
+                    <Entry x:Name="r_username" Placeholder="Kullanıcı Adı"/>
+                </Frame>
+
+                <Frame CornerRadius="10" BackgroundColor="White" Padding="10" HasShadow="True">
+                    <Entry x:Name="r_email" Placeholder="Email" Keyboard="Email"/>
+                </Frame>
+
+                <Frame CornerRadius="10" BackgroundColor="White" Padding="10" HasShadow="True">
+                    <Entry x:Name="r_password" Placeholder="Şifre" IsPassword="True"/>
+                </Frame>
+
+                <Button Text="Kayıt Ol"
+                        Clicked="RegisterClicked"
+                        BackgroundColor="#2196F3"
+                        TextColor="White"
+                        CornerRadius="20"
+                        FontAttributes="Bold"/>
+
+                <Button Text="Zaten hesabım var"
+                        BackgroundColor="Transparent"
+                        TextColor="#6C63FF"
+                        Clicked="ShowScreen"/>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

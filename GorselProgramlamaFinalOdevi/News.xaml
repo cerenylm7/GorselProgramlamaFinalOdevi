@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselProgramlamaFinalOdevi.News"
+             Title="📰 Haberler"
+             BackgroundColor="#F5F5F5">
+
+    <RefreshView RefreshColor="#6C63FF" Refreshing="LoadNews" x:Name="refreshView">
+
+        <Grid RowDefinitions="Auto,*" RowSpacing="20" Padding="20">
+
+            <!-- Kategori Barı -->
+            <CollectionView x:Name="lstKategory"
+                            Grid.Row="0"
+                            SelectionChanged="lstKategory_SelectionChanged"
+                            SelectionMode="Single"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            HeightRequest="60">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border 
+                            BackgroundColor="#6C63FF"
+                            MinimumHeightRequest="45"
+                            MinimumWidthRequest="150"
+                            Stroke="White"
+                            StrokeShape="RoundRectangle 20"
+                            StrokeThickness="2"
+                            Padding="10"
+                            Margin="0,10">
+
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                <Label Text="{Binding Baslik}" 
+                                       FontSize="16" 
+                                       TextColor="White" 
+                                       FontAttributes="Bold"/>
+                            </StackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Haber Kartları -->
+            <CollectionView x:Name="lstNews"
+                            Grid.Row="1"
+                            SelectionChanged="lstNews_SelectionChanged"
+                            SelectionMode="Single">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="20"
+                               Padding="0"
+                               HasShadow="True"
+                               Margin="0,0,0,20"
+                               BackgroundColor="White">
+
+                            <StackLayout>
+                                <!-- Görsel -->
+                                <Image Source="{Binding enclosure.link}" Aspect="AspectFill" HeightRequest="180" />
+
+                                <!-- Başlık -->
+                                <Label Text="{Binding title}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="#333"
+                                       Margin="15,10,15,5" />
+
+                                <!-- Alt Bilgi -->
+                                <HorizontalStackLayout Margin="15,0,15,15">
+                                    <Label Text="{Binding author}"
+                                           FontSize="14"
+                                           TextColor="#757575"/>
+                                    <Label Text="  |  " FontSize="14" TextColor="#BDBDBD"/>
+                                    <Label Text="{Binding pubDate}"
+                                           FontSize="14"
+                                           TextColor="#757575"/>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </Grid>
+    </RefreshView>
+</ContentPage>

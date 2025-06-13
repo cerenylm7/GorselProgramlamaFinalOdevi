@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselProgramlamaFinalOdevi.Home"
+             Title="👩‍💻 Ben Kimim?"
+             BackgroundColor="#F2F2F7">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+            <!--  Profil Fotoğrafı -->
+            <Frame Padding="0"
+                   HeightRequest="250"
+                   WidthRequest="250"
+                   CornerRadius="10"
+                   BorderColor="#6200EE"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   HorizontalOptions="Center">
+                <Image Source="cerenyilmaz.jpeg"
+                       Aspect="AspectFill" />
+            </Frame>
+
+            <!-- İsim -->
+            <Label Text="Ceren YILMAZ"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#333"
+                   HorizontalOptions="Center" />
+
+            <!-- Üniversite ve Bölüm -->
+            <Label Text="🎓 Bartın Üniversitesi💻 Bilgisayar Mühendisliği"
+                   FontSize="16"
+                   TextColor="#666"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+
+            <!-- Ödev Bilgisi -->
+            <Frame BackgroundColor="#ffffff"
+                   CornerRadius="10"
+                   Padding="15"
+                   Margin="0,20"
+                   HasShadow="True"
+                   BorderColor="#e0e0e0">
+                <Label Text="📌 ÖDEV - 3"
+                       FontSize="18"
+                       TextColor="#444"
+                       HorizontalOptions="Center" />
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
